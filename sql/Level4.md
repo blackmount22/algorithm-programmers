@@ -14,3 +14,10 @@ and name = 'Yogurt'
 order by cart_id
 ```
 <br>
+
+## 2. 입양 시각 구하기(2)
+---
+```sql
+
+```
+<br>
