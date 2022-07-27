@@ -48,6 +48,13 @@ LEFT JOIN
 ## 3. 보호소에서 중성화한 동물
 ---
 ```sql
-
+SELECT 
+    ao.ANIMAL_ID
+,   ao.ANIMAL_TYPE
+,   ao.NAME
+FROM ANIMAL_OUTS ao 
+JOIN ANIMAL_INS ai on ao.ANIMAL_ID = ai.ANIMAL_ID
+WHERE ao.SEX_UPON_OUTCOME != ai.SEX_UPON_INTAKE
+ORDER BY ao.ANIMAL_ID
 ```
 <br>
