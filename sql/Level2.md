@@ -140,3 +140,13 @@ ORDER BY MEMBER_ID
 ```
 <br>
 
+## 13. 가격이 제일 비싼 식품의 정보 출력하기
+---
+```sql
+SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CD, CATEGORY, PRICE
+FROM FOOD_PRODUCT
+ORDER BY PRICE desc
+LIMIT 1 
+```
+<br>
+
