@@ -1,0 +1,22 @@
+// 공백이 포함된 경우 문자열로 처리
+// 공백이 제거 되면 안되는 문제로 split 사용없이 처리
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        
+		for(int i=0;i<s.length();i++) {
+			if(i>0) {
+				if(s.charAt(i-1) == ' ' && ((s.charAt(i) > 96 && s.charAt(i) < 123) || (s.charAt(i) > 64 && s.charAt(i) < 91))) {
+					answer += String.valueOf(Character.toUpperCase(s.charAt(i)));
+				} else {
+					answer += String.valueOf(Character.toLowerCase(s.charAt(i)));
+				}
+			}else {
+				answer += String.valueOf(Character.toUpperCase(s.charAt(i)));
+			}
+		}
+        
+        return answer;
+    }
+}
