@@ -15,33 +15,32 @@ class Solution {
         int[] answer = {};
         
         int pCnt = stages.length;
-		HashMap<Integer, Float> map = new HashMap<>();
+	HashMap<Integer, Float> map = new HashMap<>();
+	
+	for(int i=1;i<=N;i++) {
+		int stagesStop = 0;
 		
-		for(int i=1;i<=N;i++) {
-			int stagesStop = 0;
-			
-			for(int j=0;j<stages.length;j++) {
-				if(stages[j] == i) {
-					stagesStop++;
-				}
+		for(int j=0;j<stages.length;j++) {
+			if(stages[j] == i) {
+				stagesStop++;
 			}
-			
-			float calc = 0;
-			
-			if(pCnt != 0) {
-				calc = (float)stagesStop/pCnt;
-			} 
-            
-			pCnt -= stagesStop;
-
-			map.put(i, calc);	
 		}
 		
-		List<Integer> keys = new ArrayList<>(map.keySet());
-		Collections.sort(keys, (v2, v1) -> (map.get(v1).compareTo(map.get(v2))));
-		
-		answer = keys.stream().mapToInt(i -> i).toArray();
-        
+		float calc = 0;
+		if(pCnt != 0) {
+			calc = (float)stagesStop/pCnt;
+		} 
+    
+		pCnt -= stagesStop;
+
+		map.put(i, calc);	
+	}
+	
+	List<Integer> keys = new ArrayList<>(map.keySet());
+	Collections.sort(keys, (v2, v1) -> (map.get(v1).compareTo(map.get(v2))));
+	
+	answer = keys.stream().mapToInt(i -> i).toArray();
+
         return answer;
     }
 }
